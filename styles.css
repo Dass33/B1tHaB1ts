@@ -193,18 +193,30 @@ ul li{
     border: 3px solid #333;
     user-select: none;
     background-color: rgb(119, 132, 157);
+    transition: 0.3s ease-out;
+}
+
+ul li:hover{
+    border: 3px dashed white;
+    color: white;
+}
+
+.checkOffAnim{
+    opacity: 0;
+    transform: scale(0.8);
+    background-color: rgb(134, 147, 176);
 }
 
 .close{
     transition: 0.3s;
     position: absolute;
     right: 7px;
-    font-size: 30px;
+    font-size: 32px;
     padding-bottom: 9px;
 }
 .close:hover{
     cursor: pointer;
-    color: white;
+    color: rgb(152, 18, 18);
     font-size: 42px;
     top: 0px;
     padding-top: 7px;

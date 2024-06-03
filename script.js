@@ -8,35 +8,49 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
+var listItems = document.querySelectorAll('li');
+listItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+    this.classList.add('checkOffAnim');
+    setTimeout(() => {
+      this.remove();
+    }, 300);
+    });
+});
+
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
+    this.parentElement.style.display = "none";
   }
 }
 
 document.getElementById("input-daili").addEventListener('keydown', function(event){
     if  (event.key === 'Enter') {
-    event.preventDefault();
-    newElement();
+    newElement("input-daili", "dailiUL");
+    }
+});
+
+document.getElementById("input-todos").addEventListener('keydown', function(event){
+    if  (event.key === 'Enter') {
+    newElement("input-todos", "sprintUL");
     }
 });
 
 // Create a new list item when clicking on the "Add" button
-function newElement() {
+function newElement(inputColumn, columnUL) {
   var li = document.createElement("li");
-  var inputValue = document.getElementById("input-daili").value;
+  var inputValue = document.getElementById(inputColumn).value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
   } else {
-    document.getElementById("dailiUL").appendChild(li);
+    document.getElementById(columnUL).appendChild(li);
   }
-  document.getElementById("input-daili").value = "";
+  document.getElementById(inputColumn).value = "";
 
   var span = document.createElement("span");
   var txt = document.createTextNode("X");
@@ -46,8 +60,16 @@ function newElement() {
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
+      this.parentElement.style.display = "none";
     }
   }
+  var listItems = document.querySelectorAll('li');
+  listItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+      this.classList.add('checkOffAnim');
+      setTimeout(() => {
+        this.remove();
+      }, 300);
+      });
+  });
 }
