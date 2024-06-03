@@ -1,7 +1,7 @@
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
+  var span = document.createElement("span");
   var txt = document.createTextNode("X");
   span.className = "close";
   span.appendChild(txt);
@@ -38,7 +38,7 @@ function newElement() {
   }
   document.getElementById("input-daili").value = "";
 
-  var span = document.createElement("SPAN");
+  var span = document.createElement("span");
   var txt = document.createTextNode("X");
   span.className = "close";
   span.appendChild(txt);

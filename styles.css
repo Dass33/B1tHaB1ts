@@ -192,17 +192,21 @@ ul li{
     margin-bottom: 15px;
     border: 3px solid #333;
     user-select: none;
+    background-color: rgb(119, 132, 157);
 }
 
 .close{
     transition: 0.3s;
     position: absolute;
-    right: 5px;
-    font-size: 36px;
-    top: 8px;
+    right: 7px;
+    font-size: 30px;
+    padding-bottom: 9px;
 }
 .close:hover{
     cursor: pointer;
     color: white;
-    font-size: 40px;
+    font-size: 42px;
+    top: 0px;
+    padding-top: 7px;
+    right: 5px;
 }
