@@ -1,3 +1,27 @@
+let itemsArrayDaili = localStorage.getItem('dailiList') ?
+JSON.parse(localStorage.getItem('dailiList')) : [];
+itemsArrayDaili.forEach(addTask);
+
+let itemsArrayTodos = localStorage.getItem('sprintList') ?
+JSON.parse(localStorage.getItem('sprintList')) : [];
+var i;
+for (i = 0; i < itemsArrayTodos.length; i++){
+  itemsArrayTodos[i]
+}
+var ulToPaste = "SprintUL";
+
+function addTask(text){
+  const li = document.createElement('li');
+  li.textContent = text;
+  ulToPaste.appendChild(li);
+}
+
+
+var newListElement = document.createElement("li");
+var t = document.createTextNode("hife");
+newListElement.appendChild(t);
+document.getElementById("dailiUL").appendChild(newListElement);
+
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
