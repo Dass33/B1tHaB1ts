@@ -213,6 +213,7 @@ ul li:hover{
     right: 7px;
     font-size: 32px;
     padding-bottom: 9px;
+    padding-left: 10px;
 }
 .close:hover{
     cursor: pointer;
