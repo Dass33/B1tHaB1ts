@@ -30,7 +30,7 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
-var listItems = document.querySelectorAll('li');
+var listItems = Array.from(document.getElementsByClassName("liColumns"));
 listItems.forEach(function(item) {
     item.addEventListener('click', function() {
     this.classList.add('checkOffAnim');
@@ -45,7 +45,7 @@ var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-    this.parentElement.style.display = "none";
+    this.parentElement.remove();
   }
 }
 
