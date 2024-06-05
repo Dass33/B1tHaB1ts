@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B1tHaB1ts</title>
+    <link rel="icon" type="image/x-icon" href="Images/B1_IconBackground.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -35,22 +36,22 @@
         <div class="column">
             <h2>Daili Scrum</h2>
             <ul id="dailiUL">
-                <li>Hit the gym</li>
-                <li>This is a sample</li>
+                <li class="liColumns">Hit the gym</li>
+                <li class="liColumns">This is a sample</li>
             </ul>
             <div class="bar-input">
-                <span onclick="newElement('input-daili', 'dailiUL')">$ add &nbsp</span>
+                <span onclick="newElement('input-daili', 'dailiUL', 'dailiList')">$ add &nbsp</span>
                 <input type="text" id="input-daili" > 
             </div>
         </div>
         <div class="column">
             <h2>Sprint Goals</h2>
             <ul id="sprintUL">
-                <li>Finish local storage</li>
-                <li>This is a sample</li>
+                <li class="liColumns">Finish local storage</li>
+                <li class="liColumns">This is a sample</li>
             </ul>
             <div class="bar-input">
-                <span onclick="newElement('input-todos', 'sprintUL')">$ add &nbsp</span>
+                <span onclick="newElement('input-todos', 'sprintUL', 'sprintList')">$ add &nbsp</span>
                 <input type="text" id="input-todos">
             </div>
         </div>

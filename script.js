@@ -1,28 +1,26 @@
 let itemsArrayDaili = localStorage.getItem('dailiList') ?
 JSON.parse(localStorage.getItem('dailiList')) : [];
-itemsArrayDaili.forEach(addTask);
+for(var i = 0; i < itemsArrayDaili.length; i++){
+  console.log(itemsArrayDaili[i]);
+  addTask(itemsArrayDaili[i], "dailiUL");
+}
 
 let itemsArrayTodos = localStorage.getItem('sprintList') ?
 JSON.parse(localStorage.getItem('sprintList')) : [];
 var i;
 for (i = 0; i < itemsArrayTodos.length; i++){
-  itemsArrayTodos[i]
+  addTask(itemsArrayTodos[i], "sprintUL");
 }
-var ulToPaste = "SprintUL";
 
-function addTask(text){
+function addTask(text, ulToPaste){
   const li = document.createElement('li');
-  li.textContent = text;
-  ulToPaste.appendChild(li);
+  var t = document.createTextNode(text);
+  li.appendChild(t);
+  li.className = "liColumns";
+  document.getElementById(ulToPaste).appendChild(li);
 }
 
-
-var newListElement = document.createElement("li");
-var t = document.createTextNode("hife");
-newListElement.appendChild(t);
-document.getElementById("dailiUL").appendChild(newListElement);
-
-var myNodelist = document.getElementsByTagName("LI");
+var myNodelist = document.getElementsByClassName("liColumns");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("span");
@@ -53,25 +51,34 @@ for (i = 0; i < close.length; i++) {
 
 document.getElementById("input-daili").addEventListener('keydown', function(event){
     if  (event.key === 'Enter') {
-    newElement("input-daili", "dailiUL");
+    newElement("input-daili", "dailiUL", "dailiList");
     }
 });
 
 document.getElementById("input-todos").addEventListener('keydown', function(event){
     if  (event.key === 'Enter') {
-    newElement("input-todos", "sprintUL");
+    newElement("input-todos", "sprintUL", "sprintList");
     }
 });
 
 // Create a new list item when clicking on the "Add" button
-function newElement(inputColumn, columnUL) {
+function newElement(inputColumn, columnUL, localStorageVal) {
   var li = document.createElement("li");
   var inputValue = document.getElementById(inputColumn).value;
   var t = document.createTextNode(inputValue);
+
+  // Adding to local storage
+  var itemsArray = localStorage.getItem(localStorageVal) ?
+  JSON.parse(localStorage.getItem(localStorageVal)) : [];
+  itemsArray.push(inputValue);
+  localStorage.setItem(localStorageVal, JSON.stringify(itemsArray));
+  //
+
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
   } else {
+    li.className = "liColumns";
     document.getElementById(columnUL).appendChild(li);
   }
   document.getElementById(inputColumn).value = "";
