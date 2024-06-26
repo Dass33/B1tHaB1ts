@@ -214,7 +214,7 @@ ul li{
 }
 
 ul li:hover{
-    border: 3px dashed var(--myWhite);
+    border: 3px dashed green;
     color: var(--myWhite);
 }
 
@@ -239,4 +239,9 @@ ul li:hover{
     top: 0px;
     padding-top: 7px;
     right: 5px;
+}
+
+
+.close:hover ~ ul li{
+    border: 3px dashed var(--closeHover);
 }
